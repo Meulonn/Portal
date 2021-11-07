@@ -1,27 +1,35 @@
 #ifndef CLIENT_H
 #define CLIENT_H
-
-class date
-{ public: int d,m,y;};
+#include <QSqlDatabase>
+#include<QString>
+#include<QSqlQuery>
+#include <QSqlError>
+#include <QSqlQuery>
+#include<QSqlQueryModel>
+#include<QApplication>
+#include<QMessageBox>
+#include<QDebug>
+#include <QDate>
 
 class Client
 {private:
     long client_cin;
-    char* name;
+    QString name;
     long phone_num;
-    date birthday;
+    QDate birthday;
     int gender;
-    char* email;
+    QString email;
   public:
     Client();
-    Client(long ,char*,long,date,int,char*);
+    Client(long ,QString,long,QDate,int,QString);
     long get_cin();void set_cin(long);
-    char* get_name();void set_name(char*);
+    QString get_name();void set_name(QString);
     long get_num();void set_num(long);
-    date get_birthday();void set_birthday(date);
+    QDate get_birthday();void set_birthday(QDate);
     int get_gender();void set_gender(int);
-    char* get_email();void set_email(char*);
+    QString get_email();void set_email(QString);
 
+   void add_client();
    void view_client(Client);
    void update_client(Client*);
    void delete_client(Client*);

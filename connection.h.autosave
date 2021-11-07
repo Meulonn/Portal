@@ -9,6 +9,7 @@
 #include<QApplication>
 #include<QMessageBox>
 #include<QDebug>
+#include <QDate>
 
 class Connection
 {
