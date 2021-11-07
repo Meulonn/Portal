@@ -33,8 +33,7 @@ void Client::set_email(QString email){this->email=email;}
 bool Client::add_client()
 {QVariant client_cin,phone_num;
    QSqlQuery query;
-   //QString res=QString::number(client_cin);
-
+   
    client_cin= QVariant::fromValue(client_cin);
    phone_num= QVariant::fromValue(phone_num);
 

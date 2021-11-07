@@ -29,7 +29,7 @@ class Client
     int get_gender();void set_gender(int);
     QString get_email();void set_email(QString);
 
-   void add_client();
+   bool add_client();
    void view_client(Client);
    void update_client(Client*);
    void delete_client(Client*);

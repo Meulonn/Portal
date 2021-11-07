@@ -33,7 +33,7 @@
      <attribute name="title">
       <string>ADD</string>
      </attribute>
-     <widget class="QCheckBox" name="checkBox_3">
+     <widget class="QCheckBox" name="other">
       <property name="geometry">
        <rect>
         <x>340</x>
@@ -59,7 +59,7 @@
        <string>ADRESS</string>
       </property>
      </widget>
-     <widget class="QCheckBox" name="checkBox">
+     <widget class="QCheckBox" name="female">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -98,7 +98,7 @@
        <string>BIRTHDATE</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="lineEdit_cin">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -108,7 +108,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="lineEdit_name">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -141,7 +141,7 @@
        <string>GENDER</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_5">
+     <widget class="QLineEdit" name="lineEdit_email">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -151,7 +151,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QCheckBox" name="checkBox_2">
+     <widget class="QCheckBox" name="male">
       <property name="geometry">
        <rect>
         <x>270</x>
@@ -190,7 +190,7 @@
        <string>NAME</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="lineEdit_adress">
       <property name="geometry">
        <rect>
         <x>190</x>
