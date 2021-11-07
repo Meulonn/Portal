@@ -37,7 +37,7 @@ bool Client::add_client()
    QSqlQuery query;
 
    client_cin= QVariant::fromValue(client_cin);
-   phone_num= QVariant::fromValue(phone_num);
+  // phone_num= QVariant::fromValue(phone_num);
 
 
    query.prepare("INSERT INTO client(client_cin, name, phone_num, birthday, gender, email,adress) "

@@ -34,6 +34,9 @@
       <string>ADD</string>
      </attribute>
      <widget class="QCheckBox" name="other">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>340</x>
@@ -60,6 +63,9 @@
       </property>
      </widget>
      <widget class="QCheckBox" name="female">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -239,7 +245,7 @@
        <string>PHONE_NUM</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="_num">
+     <widget class="QLineEdit" name="lineEdit_num">
       <property name="geometry">
        <rect>
         <x>190</x>
