@@ -15,9 +15,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_add_clicked()
 {
-    int id=ui->lineEdit->text().toInt();
-    QString name=ui->line
-
+    long client_cin=ui->lineEdit_cin->text().toLong();
+    QString name=ui->lineEdit_name->text();
+    long phone_num=ui->lineEdit_num->text().toLong();
+    QDate birthday=ui->dateEdit->text();
+    //int gender=ui->line;
+    QString email=ui->lineEdit_email->text();
+    QString adress=ui->lineEdit_adress->text();
 
 ;
 

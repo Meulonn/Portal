@@ -29,6 +29,8 @@ int Client::get_gender(){return gender;}
 void Client::set_gender(int gender){this->gender=gender;}
 QString Client::get_email(){return email;}
 void Client::set_email(QString email){this->email=email;}
+QString Client::get_adress(){return adress;}
+void Client::set_adress(QString adress){this->adress=adress;}
 
 bool Client::add_client()
 {QVariant client_cin,phone_num;
@@ -38,14 +40,15 @@ bool Client::add_client()
    phone_num= QVariant::fromValue(phone_num);
 
 
-   query.prepare("INSERT INTO client(client_cin, name, phone_num, birthday, gender, email) "
-                 "VALUES(cin, nom, num, date, gend, mail) ");
+   query.prepare("INSERT INTO client(client_cin, name, phone_num, birthday, gender, email,adress) "
+                 "VALUES(cin, nom, num, date, gend, mail,adres) ");
     query.bindValue("cin",client_cin);
     query.bindValue("nom",name);
     query.bindValue("num",phone_num);
     query.bindValue("date",birthday);
     query.bindValue("gend",gender);
     query.bindValue("mail",email);
+    query.bindValue("adres",adress);
 
     return query.exec();
 }
