@@ -15,10 +15,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_add_clicked()
 {
-    int id=ui->lineEdit_->text().toInt();
-    QString name=ui->lin
+    int id=ui->lineEdit->text().toInt();
+    QString name=ui->line
 
 
-
+;
 
 }
