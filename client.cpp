@@ -7,7 +7,7 @@ phone_num=0;
 gender=0;
 }
 
-Client:: Client(long client_cin,QString name,long phone_num,QDate birthday,int gender,QString email)
+Client:: Client(long client_cin,QString name,long phone_num,QDate birthday,int gender,QString email,QString adress)
 {
     this->client_cin=client_cin;
     this->name=name;
@@ -15,6 +15,7 @@ Client:: Client(long client_cin,QString name,long phone_num,QDate birthday,int g
     this->birthday=birthday;
     this->gender=gender;
     this->email=email;
+    this->adress=adress;
 }
 
 long Client:: get_cin(){return client_cin;}
