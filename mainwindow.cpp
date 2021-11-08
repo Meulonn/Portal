@@ -20,7 +20,7 @@ void MainWindow::on_pushButton_OK1_clicked()
     long client_cin=ui->lineEdit_cin->text().toLong();
     QString name=ui->lineEdit_name->text();
     long phone_num=ui->lineEdit_num->text().toLong();
-    QString birthday=ui->lineEdit_birthday->text());
+    QString birthday=ui->lineEdit_birthday->text();
     int gender;
         if(ui->radioButton_male->isChecked())
             gender=0;
