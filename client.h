@@ -23,7 +23,7 @@ class Client
     QString adress;
   public:
     Client();
-    Client(long ,QString,long,QString,int,int,int,QString,QString);
+    Client(long ,QString,long,int,int,int,int,QString,QString);
     long get_cin();void set_cin(long);
     QString get_name();void set_name(QString);
     long get_num();void set_num(long);

@@ -31,11 +31,11 @@ void Client::set_name(QString name){this->name=name;}
 long Client::get_num(){return phone_num;}
 void Client::set_num(long phone_num){this->phone_num=phone_num;}
 int Client::get_d(){return d;}
-void set_d(int d){this->d=d;}
-int get_m(){return m;}
-void set_m(int m){this->m=m;}
-int get_y(){return y;}
-void set_y(int y){this->y=y;}
+void Client::set_d(int d){this->d=d;}
+int Client::get_m(){return m;}
+void Client::set_m(int m){this->m=m;}
+int Client::get_y(){return y;}
+void Client::set_y(int y){this->y=y;}
 int Client::get_gender(){return gender;}
 void Client::set_gender(int gender){this->gender=gender;}
 QString Client::get_email(){return email;}
@@ -52,12 +52,14 @@ bool Client::add_client()
    QString gender_s= QString::number(gender);
 
 
-   query.prepare("INSERT INTO client(client_cin_s, name, phone_num_s, birthday, gender_s, email,adress) "
-                 "VALUES(:client_cin,:name,:phone_num,:birthday,:gender,:email,:adress) ");
+   query.prepare("INSERT INTO client(client_cin_s, name, phone_num_s, d, m, y, gender_s, email,adress) "
+                 "VALUES(:client_cin,:name,:phone_num,:d,:m,:y,:gender,:email,:adress) ");
     query.bindValue(":client_cin",client_cin_s);
     query.bindValue(":name",name);
     query.bindValue(":phone_num",phone_num_s);
-    query.bindValue(":birthday",birthday);
+    query.bindValue(":d",d);
+    query.bindValue(":m",m);
+    query.bindValue(":y",y);
     query.bindValue(":gender",gender_s);
     query.bindValue(":email",email);
     query.bindValue(":adress",adress);

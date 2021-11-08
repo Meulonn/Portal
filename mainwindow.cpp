@@ -20,7 +20,9 @@ void MainWindow::on_pushButton_OK1_clicked()
     long client_cin=ui->lineEdit_cin->text().toLong();
     QString name=ui->lineEdit_name->text();
     long phone_num=ui->lineEdit_num->text().toLong();
-    QString birthday=ui->lineEdit_birthday->text();
+    int d=ui->lineEdit_d->text().toInt();
+    int m=ui->lineEdit_m->text().toInt();
+    int y=ui->lineEdit_y->text().toInt();
     int gender;
         if(ui->radioButton_male->isChecked())
             gender=0;
@@ -41,35 +43,29 @@ if(cin.length()!=8)
     QMessageBox::information(0,"Add client","Please fill client_cin section.\n");
 else if(name=="")
         QMessageBox::information(0,"Add client","Please fill name section.\n");
-    else if((gender!=0)&&(gender!=1)&&(gender!=2))
-            QMessageBox::information(0,"Add client","Please check gender section.\n");
-        else if(num.length()!=8)
-                QMessageBox::information(0,"Add client","Please fill phone_num section.\n");
-            else if(birthday=="")
-                    QMessageBox::information(0,"Add client","Please fill birthday section.\n[dd-mm-yyy]");
-                else if(((d<1)||(d>31))&&((m<1)||(m>12))&&((y<1950)||(y>2021)))
-                        QMessageBox::information(0,"Add client","birthday:dd-mm-yyyy");
-            else if (adress=="")
-                    QMessageBox::information(0,"Add client","Please fill adress section.\n");
-                 else if (email=="")
-                            QMessageBox::information(0,"Add client","Please fill email section.\n");
-                        else if (email.indexOf(a,0)==-1)
-                                    QMessageBox::information(0,"Add client","@ is missing\n");
-                            else if ((email.indexOf(com,0)==-1)&&(email.indexOf(fr,0)==-1)&&(email.indexOf(tn,0)==-1)&&(email.indexOf(net,0)==-1)&&(email.indexOf(io,0)==-1))
-                                    QMessageBox::information(0,"Add client",".com OR .fr OR .tn OR .net OR .io is missing\n");
+    else if(((d<1)||(d>31))||((m<1)||(m>12))||((y<1950)||(y>2021)))
+            QMessageBox::information(0,"Add client","check birthday.\n");
+         else if((gender!=0)&&(gender!=1)&&(gender!=2))
+             QMessageBox::information(0,"Add client","Please check gender section.\n");
+            else if(num.length()!=8)
+                  QMessageBox::information(0,"Add client","Please fill phone_num section.\n");
+                else if((d==0)||(m==0)||(y==0))
+                        QMessageBox::information(0,"Add client","Please fill birthday section.\n");
+                     else if (adress=="")
+                              QMessageBox::information(0,"Add client","Please fill adress section.\n");
+                         else if (email=="")
+                                 QMessageBox::information(0,"Add client","Please fill email section.\n");
+                             else if (email.indexOf(a,0)==-1)
+                                     QMessageBox::information(0,"Add client","@ is missing\n");
+                                 else if ((email.indexOf(com,0)==-1)&&(email.indexOf(fr,0)==-1)&&(email.indexOf(tn,0)==-1)&&(email.indexOf(net,0)==-1)&&(email.indexOf(io,0)==-1))
+                                          QMessageBox::information(0,"Add client",".com OR .fr OR .tn OR .net OR .io is missing\n");
 
 
 
 
 else{
 
-    QString bbb="tests";
-    QMessageBox::information(0,"Add client",bbb);
-    bbb.chop(2);
-    QMessageBox::information(0,"Add client",bbb);
-
-
-    Client C(client_cin,name,phone_num,birthday,gender,email,adress);
+    Client C(client_cin,name,phone_num,d,m,y,gender,email,adress);
     bool test=C.add_client();
     if(test)
     {
