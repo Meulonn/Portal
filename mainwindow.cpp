@@ -68,10 +68,10 @@ else{
     Client C(client_cin,name,phone_num,d,m,y,gender,email,adress);
     bool test=C.add_client();
     if(test)
-        QString testt="vrai";
-    else QString testt="faux";
+        QMessageBox::information(0,"test","vrai");
+    else QMessageBox::information(0,"test","faux");
 
-    QMessageBox::information(0,"a",testt,"a");
+
     if(test)
     {
         QMessageBox::information(0,"Add client","new client is added.\n");
