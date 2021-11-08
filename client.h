@@ -17,17 +17,17 @@ class Client
     long client_cin;
     QString name;
     long phone_num;
-    QDate birthday;
+    QString birthday;
     int gender;
     QString email;
     QString adress;
   public:
     Client();
-    Client(long ,QString,long,QDate,int,QString,QString);
+    Client(long ,QString,long,QString,int,QString,QString);
     long get_cin();void set_cin(long);
     QString get_name();void set_name(QString);
     long get_num();void set_num(long);
-    QDate get_birthday();void set_birthday(QDate);
+    QString get_birthday();void set_birthday(QString);
     int get_gender();void set_gender(int);
     QString get_email();void set_email(QString);
     QString get_adress();void set_adress(QString);
