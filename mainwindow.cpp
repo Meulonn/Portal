@@ -36,6 +36,10 @@ void MainWindow::on_pushButton_OK1_clicked()
     QString com=".com";QString fr=".fr";QString tn=".tn";
     QString cin= QString::number(client_cin);
     QString num= QString::number(phone_num);
+    QStringList list=birthday.split("-");
+    int d=list[0].toInt();
+    int m=list[1].toInt();
+    int y=list[2].toInt();
 
 if(cin.length()!=8)
     QMessageBox::information(0,"Add client","Please fill client_cin section.\n");
@@ -45,6 +49,10 @@ else if(name=="")
             QMessageBox::information(0,"Add client","Please check gender section.\n");
         else if(num.length()!=8)
                 QMessageBox::information(0,"Add client","Please fill phone_num section.\n");
+            else if(birthday=="")
+                    QMessageBox::information(0,"Add client","Please fill birthday section.\n[dd-mm-yyy]");
+                else if(((d<1)||(d>31))&&((m<1)||(m>12))&&((y<1950)||(y>2021)))
+                        QMessageBox::information(0,"Add client","birthday:dd-mm-yyyy");
             else if (adress=="")
                     QMessageBox::information(0,"Add client","Please fill adress section.\n");
                  else if (email=="")
@@ -58,6 +66,13 @@ else if(name=="")
 
 
 else{
+
+    QString bbb="tests";
+    QMessageBox::information(0,"Add client",bbb);
+    bbb.chop(2);
+    QMessageBox::information(0,"Add client",bbb);
+
+
     Client C(client_cin,name,phone_num,birthday,gender,email,adress);
     bool test=C.add_client();
     if(test)

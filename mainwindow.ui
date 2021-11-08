@@ -193,7 +193,7 @@
        <string>male</string>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton_other_2">
+     <widget class="QRadioButton" name="radioButton_other">
       <property name="geometry">
        <rect>
         <x>390</x>
@@ -204,6 +204,16 @@
       </property>
       <property name="text">
        <string>other</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_num">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>210</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_adress">
@@ -226,20 +236,10 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_num">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>210</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_OK1">
       <property name="geometry">
        <rect>
-        <x>580</x>
+        <x>590</x>
         <y>300</y>
         <width>93</width>
         <height>28</height>
