@@ -236,7 +236,7 @@
        <string>male</string>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton_3">
+     <widget class="QRadioButton" name="radioButton_other">
       <property name="geometry">
        <rect>
         <x>370</x>

@@ -26,7 +26,7 @@ void MainWindow::on_pushButton_add_clicked()
             gender=0;
         if(ui->radioButton_female->isChecked())
             gender=1;
-        if(ui->radioButton_3->isChecked())
+        if(ui->radioButton_other->isChecked())
             gender=2;
 
     QString email=ui->lineEdit_email->text();

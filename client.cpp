@@ -38,19 +38,21 @@ bool Client::add_client()
    QSqlQuery query;
 
    client_cin= QVariant::fromValue(client_cin);
-  // phone_num= QVariant::fromValue(phone_num);
-
+   phone_num= QVariant::fromValue(phone_num);
+   //QString gender=
 
    query.prepare("INSERT INTO client(client_cin, name, phone_num, birthday, gender, email,adress) "
-                 "VALUES(cin, nom, num, date, gend, mail,adres) ");
-    query.bindValue("cin",client_cin);
-    query.bindValue("nom",name);
-    query.bindValue("num",phone_num);
-    query.bindValue("date",birthday);
-    query.bindValue("gend",gender);
-    query.bindValue("mail",email);
-    query.bindValue("adres",adress);
+                 "VALUES(:client_cin,:name,:phone_num,:birthday,:gender,:email,:adress) ");
+    query.bindValue(":client_cin",client_cin);
+    query.bindValue(":name",name);
+    query.bindValue(":phone_num",phone_num);
+    query.bindValue(":birthday",birthday);
+    query.bindValue(":gender",gender);
+    query.bindValue(":email",email);
+    query.bindValue(":adress",adress);
 
+    if(query.lastError().isValid())
+        qDebug()<<query.lastError();
     return query.exec();
 }
 
