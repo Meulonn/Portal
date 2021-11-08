@@ -40,17 +40,14 @@ else if(name=="")
     else if((gender!=0)&&(gender!=1)&&(gender!=2))
             QMessageBox::information(0,"Add client","Please check gender section.\n");
         else {QString num= QString::number(phone_num);
-            if(sizeof(num)!=8)
-                QMessageBox::information(0,"Add client",num.length(),"Please fill phone_num section.\n");
-
-            else if ((email=="")||(email.indexOf("@",sizeof(email))!=-1)||(email.indexOf(".com",sizeof(email))!=-1)
-                                                                         ||(email.indexOf(".fr",sizeof(email))!=-1)
-                                                                         ||(email.indexOf(".tn",sizeof(email))!=-1))
-                    QMessageBox::information(0,"Add client","Please fill email section.\n");
-                else if (adress=="")
-                        QMessageBox::information(0,"Add client","Please fill adress section.\n");
-
-
+            if(num.length()!=8)
+                QMessageBox::information(0,"Add client","Please fill phone_num section.\n");
+            else if (adress=="")
+                    QMessageBox::information(0,"Add client","Please fill adress section.\n");
+                 else if ((email=="")||(email.indexOf("@",sizeof(email))!=-1)||(email.indexOf(".com",sizeof(email))!=-1)
+                                                                             ||(email.indexOf(".fr",sizeof(email))!=-1)
+                                                                             ||(email.indexOf(".tn",sizeof(email))!=-1))
+                                 QMessageBox::information(0,"Add client","Please fill email section.\n");
 
 else{
     Client C(client_cin,name,phone_num,birthday,gender,email,adress);
