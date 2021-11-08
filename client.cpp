@@ -34,20 +34,21 @@ QString Client::get_adress(){return adress;}
 void Client::set_adress(QString adress){this->adress=adress;}
 
 bool Client::add_client()
-{QVariant client_cin,phone_num;
+{
    QSqlQuery query;
 
-   client_cin= QVariant::fromValue(client_cin);
-   phone_num= QVariant::fromValue(phone_num);
-   //QString gender=
+   QString client_cin_s= QString::number(client_cin);
+   QString phone_num_s= QString::number(phone_num);
+   QString gender_s= QString::number(gender);
 
-   query.prepare("INSERT INTO client(client_cin, name, phone_num, birthday, gender, email,adress) "
+
+   query.prepare("INSERT INTO client(client_cin_s, name, phone_num_s, birthday, gender_s, email,adress) "
                  "VALUES(:client_cin,:name,:phone_num,:birthday,:gender,:email,:adress) ");
-    query.bindValue(":client_cin",client_cin);
+    query.bindValue(":client_cin",client_cin_s);
     query.bindValue(":name",name);
-    query.bindValue(":phone_num",phone_num);
+    query.bindValue(":phone_num",phone_num_s);
     query.bindValue(":birthday",birthday);
-    query.bindValue(":gender",gender);
+    query.bindValue(":gender",gender_s);
     query.bindValue(":email",email);
     query.bindValue(":adress",adress);
 

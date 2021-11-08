@@ -10,6 +10,7 @@
 #include<QMessageBox>
 #include<QDebug>
 #include <QDate>
+#include <QObject>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
