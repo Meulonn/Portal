@@ -36,10 +36,6 @@ void MainWindow::on_pushButton_OK1_clicked()
     QString com=".com";QString fr=".fr";QString tn=".tn";QString net=".net";QString io=".io";
     QString cin= QString::number(client_cin);
     QString num= QString::number(phone_num);
-    QStringList list=birthday.split("-");
-    int d=list[0].toInt();
-    int m=list[1].toInt();
-    int y=list[2].toInt();
 
 if(cin.length()!=8)
     QMessageBox::information(0,"Add client","Please fill client_cin section.\n");
