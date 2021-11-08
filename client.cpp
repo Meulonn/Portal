@@ -50,16 +50,18 @@ bool Client::add_client()
    QString client_cin_s= QString::number(client_cin);
    QString phone_num_s= QString::number(phone_num);
    QString gender_s= QString::number(gender);
+   QString d_s= QString::number(d);
+   QString m_s= QString::number(m);
+   QString y_s= QString::number(y);
 
-
-   query.prepare("INSERT INTO client(client_cin_s, name, phone_num_s, d, m, y, gender_s, email,adress) "
+   query.prepare("INSERT INTO client(client_cin_s, name, phone_num_s, d_s, m_s, y_s, gender_s, email,adress) "
                  "VALUES(:client_cin,:name,:phone_num,:d,:m,:y,:gender,:email,:adress) ");
     query.bindValue(":client_cin",client_cin_s);
     query.bindValue(":name",name);
     query.bindValue(":phone_num",phone_num_s);
-    query.bindValue(":d",d);
-    query.bindValue(":m",m);
-    query.bindValue(":y",y);
+    query.bindValue(":d",d_s);
+    query.bindValue(":m",m_s);
+    query.bindValue(":y",y_s);
     query.bindValue(":gender",gender_s);
     query.bindValue(":email",email);
     query.bindValue(":adress",adress);
