@@ -31,7 +31,13 @@ void MainWindow::on_pushButton_add_clicked()
 
     QString email=ui->lineEdit_email->text();
     QString adress=ui->lineEdit_adress->text();
+//email@|birthday
+if((client_cin==0)||(name==NULL)||(phone_num==0)||(sizeof (phone_num)!=8)||(gender!=0)||(gender!=1)||(gender!=2)||(email=="")||(adress==""))
+{
+    QMessageBox::information(nullptr,QObject::tr("Add client"),
+                 QObject::tr("Please fill all the fields.\n"),QMessageBox::Ok);
 
+  }
     Client C(client_cin,name,phone_num,birthday,gender,email,adress);
 
     bool test=C.add_client();

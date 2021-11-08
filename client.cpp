@@ -3,8 +3,11 @@
 Client::Client()
 {
 client_cin=0;
+name="";
 phone_num=0;
 gender=0;
+email="";
+adress="";
 }
 
 Client:: Client(long client_cin,QString name,long phone_num,QDate birthday,int gender,QString email,QString adress)
