@@ -68,15 +68,18 @@ else{
     Client C(client_cin,name,phone_num,d,m,y,gender,email,adress);
     bool test=C.add_client();
     if(test)
+        QString testt="vrai";
+    else QString testt="faux";
+
+    QMessageBox::information(0,"a",testt,"a");
+    if(test)
     {
-        QMessageBox::information(nullptr,QObject::tr("OK"),
-                     QObject::tr("new client is added\n"
-                                 "Click Cancel to exit."),QMessageBox::Cancel);
+        QMessageBox::information(0,"Add client","new client is added.\n");
+                                 //"Click Cancel to exit."),QMessageBox::Cancel);
 
     }
-    else QMessageBox::critical(nullptr,QObject::tr("Not OK"),
-                               QObject::tr("not added\n"
-                                           "Click Cancel to exit."),QMessageBox::Cancel);
+    else QMessageBox::critical(0,"Add client","new client is not added.\n");
+                                          // "Click Cancel to exit."),QMessageBox::Cancel);
 
 }
 }
