@@ -5,18 +5,20 @@ Client::Client()
 client_cin=0;
 name="";
 phone_num=0;
-birthday="";
+d=0;m=0;y=0;
 gender=0;
 email="";
 adress="";
 }
 
-Client:: Client(long client_cin,QString name,long phone_num,QString birthday,int gender,QString email,QString adress)
+Client:: Client(long client_cin,QString name,long phone_num,int d,int m,int y,int gender,QString email,QString adress)
 {
     this->client_cin=client_cin;
     this->name=name;
     this->phone_num=phone_num;
-    this->birthday=birthday;
+    this->d=d;
+    this->m=m;
+    this->y=y;
     this->gender=gender;
     this->email=email;
     this->adress=adress;
@@ -28,8 +30,12 @@ QString Client::get_name(){return name;}
 void Client::set_name(QString name){this->name=name;}
 long Client::get_num(){return phone_num;}
 void Client::set_num(long phone_num){this->phone_num=phone_num;}
-QString Client::get_birthday(){return birthday;}
-void Client::set_birthday(QString birthday){this->birthday=birthday;}
+int Client::get_d(){return d;}
+void set_d(int d){this->d=d;}
+int get_m(){return m;}
+void set_m(int m){this->m=m;}
+int get_y(){return y;}
+void set_y(int y){this->y=y;}
 int Client::get_gender(){return gender;}
 void Client::set_gender(int gender){this->gender=gender;}
 QString Client::get_email(){return email;}
