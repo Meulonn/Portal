@@ -14,7 +14,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_add_clicked()
+void MainWindow::on_pushButton_OK1()
 {
     long client_cin=ui->lineEdit_cin->text().toLong();
     QString name=ui->lineEdit_name->text();
@@ -31,15 +31,15 @@ void MainWindow::on_pushButton_add_clicked()
 
     QString email=ui->lineEdit_email->text();
     QString adress=ui->lineEdit_adress->text();
-//email@|birthday
-if((client_cin==0)||(name==NULL)||(phone_num==0)||(sizeof (phone_num)!=8)||(gender!=0)||(gender!=1)||(gender!=2)||(email=="")||(adress==""))
+//email@
+while((client_cin==0)||(name=="")||(phone_num==0)||(sizeof (phone_num)!=8)||(gender!=0)||(gender!=1)||(gender!=2)||(email=="")||(adress==""))
 {
     QMessageBox::information(nullptr,QObject::tr("Add client"),
                  QObject::tr("Please fill all the fields.\n"),QMessageBox::Ok);
 
   }
     Client C(client_cin,name,phone_num,birthday,gender,email,adress);
-
+QMessageBox::information(0,"test","tessst");
     bool test=C.add_client();
     if(test)
     {
@@ -51,4 +51,11 @@ if((client_cin==0)||(name==NULL)||(phone_num==0)||(sizeof (phone_num)!=8)||(gend
     else QMessageBox::critical(nullptr,QObject::tr("Not OK"),
                                QObject::tr("not added\n"
                                            "Click Cancel to exit."),QMessageBox::Cancel);
+}
+
+
+void MainWindow::on_pushButton_ooo_clicked()
+{bool test=(1<2);
+    if(test)
+       QMessageBox::information(0,"test","tessst1");
 }
