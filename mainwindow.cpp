@@ -14,7 +14,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_OK1()
+
+void MainWindow::on_pushButton_OK1_clicked()
 {
     long client_cin=ui->lineEdit_cin->text().toLong();
     QString name=ui->lineEdit_name->text();
@@ -32,12 +33,26 @@ void MainWindow::on_pushButton_OK1()
     QString email=ui->lineEdit_email->text();
     QString adress=ui->lineEdit_adress->text();
 //email@
-while((client_cin==0)||(name=="")||(phone_num==0)||(sizeof (phone_num)!=8)||(gender!=0)||(gender!=1)||(gender!=2)||(email=="")||(adress==""))
-{
-    QMessageBox::information(nullptr,QObject::tr("Add client"),
-                 QObject::tr("Please fill all the fields.\n"),QMessageBox::Ok);
+if(client_cin==0)
+    QMessageBox::information(0,"Add client","Please fill client_cin section.\n");
+else if(name=="")
+        QMessageBox::information(0,"Add client","Please fill name section.\n");
+    else if((gender!=0)&&(gender!=1)&&(gender!=2))
+            QMessageBox::information(0,"Add client","Please check gender section.\n");
+        else {QString num= QString::number(phone_num);
+            if(sizeof(num)!=8)
+                QMessageBox::information(0,"Add client",num.length(),"Please fill phone_num section.\n");
 
-  }
+            else if ((email=="")||(email.indexOf("@",sizeof(email))!=-1)||(email.indexOf(".com",sizeof(email))!=-1)
+                                                                         ||(email.indexOf(".fr",sizeof(email))!=-1)
+                                                                         ||(email.indexOf(".tn",sizeof(email))!=-1))
+                    QMessageBox::information(0,"Add client","Please fill email section.\n");
+                else if (adress=="")
+                        QMessageBox::information(0,"Add client","Please fill adress section.\n");
+
+
+
+else{
     Client C(client_cin,name,phone_num,birthday,gender,email,adress);
 QMessageBox::information(0,"test","tessst");
     bool test=C.add_client();
@@ -51,11 +66,6 @@ QMessageBox::information(0,"test","tessst");
     else QMessageBox::critical(nullptr,QObject::tr("Not OK"),
                                QObject::tr("not added\n"
                                            "Click Cancel to exit."),QMessageBox::Cancel);
-}
 
-
-void MainWindow::on_pushButton_ooo_clicked()
-{bool test=(1<2);
-    if(test)
-       QMessageBox::information(0,"test","tessst1");
 }
+}}
