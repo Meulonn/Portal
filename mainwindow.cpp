@@ -14,14 +14,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::male_checked()
-{
-        ui->male->setChecked(true);
-        ui->female->setChecked(false);
-        ui->other->setChecked(false);
-
-}
-
 void MainWindow::on_pushButton_add_clicked()
 {
     long client_cin=ui->lineEdit_cin->text().toLong();
@@ -30,30 +22,13 @@ void MainWindow::on_pushButton_add_clicked()
     QDate birthday;
             birthday.fromString(ui->dateEdit->text());
     int gender;
-        if(ui->male->isChecked())
-        {
-            male_checked();
+        if(ui->radioButton_male->isChecked())
             gender=0;
-        }
-
-        /*else if(ui->female->isChecked())
-        {
-            ui->male->setChecked(false);
-            ui->female->setChecked(true);
-            ui->other->setChecked(false);
+        if(ui->radioButton_female->isChecked())
             gender=1;
-         }
-        else if(ui->other->isChecked())
-        {
-            ui->male->setChecked(false);
-            ui->female->setChecked(false);
-            ui->other->setChecked(true);
+        if(ui->radioButton_3->isChecked())
             gender=2;
-         }*/
 
-
-
-    //=ui->female->checkState();//0=male/1=female/2=other
     QString email=ui->lineEdit_email->text();
     QString adress=ui->lineEdit_adress->text();
 
