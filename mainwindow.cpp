@@ -44,9 +44,9 @@ else if(name=="")
                 QMessageBox::information(0,"Add client","Please fill phone_num section.\n");
             else if (adress=="")
                     QMessageBox::information(0,"Add client","Please fill adress section.\n");
-                 else if ((email=="")||(email.indexOf("@",sizeof(email))!=-1)||(email.indexOf(".com",sizeof(email))!=-1)
-                                                                             ||(email.indexOf(".fr",sizeof(email))!=-1)
-                                                                             ||(email.indexOf(".tn",sizeof(email))!=-1))
+                 else if ((email=="")&&(email.indexOf("@",email.length())!=-1)&&((email.indexOf(".com",email.length())!=-1)
+                                                                             ||(email.indexOf(".fr",email.length())!=-1)
+                                                                             ||(email.indexOf(".tn",email.length())!=-1)))
                                  QMessageBox::information(0,"Add client","Please fill email section.\n");
 
 else{
