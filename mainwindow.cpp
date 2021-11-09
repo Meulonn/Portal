@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_OK1_clicked()
 {
-    long client_cin=ui->lineEdit_cin->text().toLong();
+    long cin=ui->lineEdit_cin->text().toLong();
     QString name_client=ui->lineEdit_name->text();
     long phone_num=ui->lineEdit_num->text().toLong();
     int d=ui->lineEdit_d->text().toInt();
@@ -36,10 +36,10 @@ void MainWindow::on_pushButton_OK1_clicked()
 
     QString a="@";
     QString com=".com";QString fr=".fr";QString tn=".tn";QString net=".net";QString io=".io";
-    QString cin= QString::number(client_cin);
     QString num= QString::number(phone_num);
+    QString client_cin= QString::number(cin);
 
-if(cin.length()!=8)
+if(client_cin.length()!=8)
     QMessageBox::information(0,"Add client","Please fill client_cin section.\n");
 else if(name_client=="")
         QMessageBox::information(0,"Add client","Please fill name section.\n");
@@ -67,10 +67,6 @@ else{
 
     Client C(client_cin,name_client,phone_num,d,m,y,gender,email,adress);
     bool test=C.add_client();
-    if(test)
-        QMessageBox::information(0,"test","vrai");
-    else QMessageBox::information(0,"test","faux");
-
 
     if(test)
         QMessageBox::information(0,"Add client","new client is added.\n");                               

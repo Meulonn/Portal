@@ -11,10 +11,10 @@
 #include<QDebug>
 #include <QDate>
 #include <QObject>
-
+#include <QList>
 class Client
 {private:
-    long client_cin;
+    QString client_cin;
     QString name_client;
     long phone_num;
     int d,m,y;
@@ -23,8 +23,8 @@ class Client
     QString adress;
   public:
     Client();
-    Client(long ,QString,long,int,int,int,int,QString,QString);
-    long get_cin();void set_cin(long);
+    Client(QString ,QString,long,int,int,int,int,QString,QString);
+    QString get_cin();void set_cin(QString);
     QString get_name();void set_name(QString);
     long get_num();void set_num(long);
     int get_d();void set_d(int);
