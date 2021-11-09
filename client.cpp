@@ -46,13 +46,14 @@ void Client::set_adress(QString adress){this->adress=adress;}
 bool Client::add_client()
 {
    QSqlQuery query;
+
    QString phone_num_s= QString::number(phone_num);
    QString gender_s= QString::number(gender);
    QString d_s= QString::number(d);
    QString m_s= QString::number(m);
    QString y_s= QString::number(y);
 
-   query.prepare("INSERT INTO client(CLIENT_CIN, NAME_CLIENT, PHONE_NUM, D, M, Y, GENDER, EMAIL,ADRESS) "
+   query.prepare("INSERT INTO CLIENTs(CLIENT_CIN, NAME_CLIENT, PHONE_NUM, D, M, Y, GENDER, EMAIL,ADRESS) "
                  "VALUES(:CLIENT_CIN, :NAME_CLIENT, :PHONE_NUM, :D, :M, :Y, :GENDER, :EMAIL,:ADRESS)");
     query.bindValue(":CLIENT_CIN",client_cin);
     query.bindValue(":NAME_CLIENT",name_client);
@@ -68,7 +69,7 @@ bool Client::add_client()
     {qDebug()<<query.lastError();
         QMessageBox::information(0,"error","debug");}
     return query.exec();
-}//page26
+}
 
 
 bool Client:: delete_client(long client_cin)
