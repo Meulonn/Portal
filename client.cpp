@@ -66,10 +66,11 @@ bool Client::add_client()
     query.bindValue(":email",email);
     query.bindValue(":adress",adress);
 
-    if(query.lastError().isValid())
-        qDebug()<<query.lastError();
+    /*while(query.lastError().isValid())
+    {qDebug()<<query.lastError();
+        QMessageBox::information(0,"test","test");}*/
     return query.exec();
-}
+}//page26
 
 //void Client::view_client(Client);
 //void Client:: update_client(Client*);

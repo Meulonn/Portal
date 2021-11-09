@@ -73,13 +73,8 @@ else{
 
 
     if(test)
-    {
-        QMessageBox::information(0,"Add client","new client is added.\n");
-                                 //"Click Cancel to exit."),QMessageBox::Cancel);
-
-    }
+        QMessageBox::information(0,"Add client","new client is added.\n");                               
     else QMessageBox::critical(0,"Add client","new client is not added.\n");
-                                          // "Click Cancel to exit."),QMessageBox::Cancel);
 
 }
 }
