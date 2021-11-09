@@ -15,7 +15,7 @@
 class Client
 {private:
     long client_cin;
-    QString client_name;
+    QString name_client;
     long phone_num;
     int d,m,y;
     int gender;
