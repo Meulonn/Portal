@@ -18,7 +18,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_OK1_clicked()
 {
     long client_cin=ui->lineEdit_cin->text().toLong();
-    QString name=ui->lineEdit_name->text();
+    QString client_name=ui->lineEdit_name->text();
     long phone_num=ui->lineEdit_num->text().toLong();
     int d=ui->lineEdit_d->text().toInt();
     int m=ui->lineEdit_m->text().toInt();
@@ -41,7 +41,7 @@ void MainWindow::on_pushButton_OK1_clicked()
 
 if(cin.length()!=8)
     QMessageBox::information(0,"Add client","Please fill client_cin section.\n");
-else if(name=="")
+else if(client_name=="")
         QMessageBox::information(0,"Add client","Please fill name section.\n");
     else if(((d<1)||(d>31))||((m<1)||(m>12))||((y<1950)||(y>2021)))
             QMessageBox::information(0,"Add client","check birthday.\n");
@@ -65,7 +65,7 @@ else if(name=="")
 
 else{
 
-    Client C(client_cin,name,phone_num,d,m,y,gender,email,adress);
+    Client C(client_cin,client_name,phone_num,d,m,y,gender,email,adress);
     bool test=C.add_client();
     if(test)
         QMessageBox::information(0,"test","vrai");

@@ -3,7 +3,7 @@
 Client::Client()
 {
 client_cin=0;
-name="";
+client_name="";
 phone_num=0;
 d=0;m=0;y=0;
 gender=0;
@@ -11,10 +11,10 @@ email="";
 adress="";
 }
 
-Client:: Client(long client_cin,QString name,long phone_num,int d,int m,int y,int gender,QString email,QString adress)
+Client:: Client(long client_cin,QString client_name,long phone_num,int d,int m,int y,int gender,QString email,QString adress)
 {
     this->client_cin=client_cin;
-    this->name=name;
+    this->client_name=client_name;
     this->phone_num=phone_num;
     this->d=d;
     this->m=m;
@@ -26,8 +26,8 @@ Client:: Client(long client_cin,QString name,long phone_num,int d,int m,int y,in
 
 long Client:: get_cin(){return client_cin;}
 void Client::set_cin(long client_cin){this->client_cin=client_cin;}
-QString Client::get_name(){return name;}
-void Client::set_name(QString name){this->name=name;}
+QString Client::get_name(){return client_name;}
+void Client::set_name(QString client_name){this->client_name=client_name;}
 long Client::get_num(){return phone_num;}
 void Client::set_num(long phone_num){this->phone_num=phone_num;}
 int Client::get_d(){return d;}
@@ -54,10 +54,10 @@ bool Client::add_client()
    QString m_s= QString::number(m);
    QString y_s= QString::number(y);
 
-   query.prepare("INSERT INTO client(client_cin_s, name, phone_num_s, d_s, m_s, y_s, gender_s, email,adress) "
-                 "VALUES(:client_cin,:name,:phone_num,:d,:m,:y,:gender,:email,:adress) ");
+   query.prepare("INSERT INTO client(client_cin, client_name, phone_num, d, m, y, gender, email,adress) "
+                 "VALUES(:client_cin,:client_name,:phone_num,:d,:m,:y,:gender,:email,:adress) ");
     query.bindValue(":client_cin",client_cin_s);
-    query.bindValue(":name",name);
+    query.bindValue(":client_name",client_name);
     query.bindValue(":phone_num",phone_num_s);
     query.bindValue(":d",d_s);
     query.bindValue(":m",m_s);
@@ -66,9 +66,9 @@ bool Client::add_client()
     query.bindValue(":email",email);
     query.bindValue(":adress",adress);
 
-    /*while(query.lastError().isValid())
+    while(query.lastError().isValid())
     {qDebug()<<query.lastError();
-        QMessageBox::information(0,"test","test");}*/
+        QMessageBox::information(0,"error","debug");}
     return query.exec();
 }//page26
 
