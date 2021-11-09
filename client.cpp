@@ -54,17 +54,17 @@ bool Client::add_client()
    QString m_s= QString::number(m);
    QString y_s= QString::number(y);
 
-   query.prepare("INSERT INTO client(client_cin, name_client, phone_num, d, m, y, gender, email,adress) "
-                 "VALUES(:client_cin,:name_client,:phone_num,:d,:m,:y,:gender,:email,:adress) ");
-    query.bindValue(":client_cin",client_cin_s);
-    query.bindValue(":client_name",name_client);
-    query.bindValue(":phone_num",phone_num_s);
-    query.bindValue(":d",d_s);
-    query.bindValue(":m",m_s);
-    query.bindValue(":y",y_s);
-    query.bindValue(":gender",gender_s);
-    query.bindValue(":email",email);
-    query.bindValue(":adress",adress);
+   query.prepare("INSERT INTO client(CLIENT_CIN, NAME_CLIENT, PHONE_NUM, D, M, Y, GENDER, EMAIL,ADRESS) "
+                 "VALUES(:CLIENT_CIN, :NAME_CLIENT, :PHONE_NUM, :D, :M, :Y, :GENDER, :EMAIL,:ADRESS)");
+    query.bindValue(":CLIENT_CIN",client_cin_s);
+    query.bindValue(":NAME_CLIENT",name_client);
+    query.bindValue(":PHONE_NUM,",phone_num_s);
+    query.bindValue(":D",d_s);
+    query.bindValue(":M",m_s);
+    query.bindValue(":Y",y_s);
+    query.bindValue(":GENDER",gender_s);
+    query.bindValue(":EMAIL",email);
+    query.bindValue(":ADRESS",adress);
 
     if(query.lastError().isValid())
     {qDebug()<<query.lastError();
@@ -72,9 +72,19 @@ bool Client::add_client()
     return query.exec();
 }//page26
 
+
+bool Client:: delete_client(long client_cin)
+{
+    QSqlQuery query;
+    QString client_cin_s= QString::number(client_cin);
+    query.prepare("Delete from client where client_cin=:client_cin");
+    query.bindValue(":client_cin",client_cin_s);
+    return query.exec();
+}
+
+
 //void Client::view_client(Client);
 //void Client:: update_client(Client*);
-//void Client::delete_client(Client*);
 //void Client::view_purchaseHistory(Client);
 //void Client::classify_client(Client);
 //Client Client:research_client(Client);

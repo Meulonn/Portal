@@ -35,9 +35,9 @@ class Client
     QString get_adress();void set_adress(QString);
 
    bool add_client();
-  /* void view_client(Client);
-   void update_client(Client*);
-   void delete_client(Client*);
+   bool delete_client(long);
+   /* void view_client(Client);
+    void update_client(Client*);
    void view_purchaseHistory(Client);
    void classify_client(Client);
    Client research_client(Client);

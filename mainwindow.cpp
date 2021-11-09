@@ -78,3 +78,8 @@ else{
 
 }
 }
+
+/*void MainWindow::on_pushButton_delete_clicked()
+{
+    long client_cin=ui->line
+}*/
