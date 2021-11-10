@@ -68,24 +68,33 @@ bool Client::add_client()
     if(query.lastError().isValid())
     {qDebug()<<query.lastError();
         QMessageBox::information(0,"error","bug:add_client");}
-    bool test=query.exec();
-    if(test)
-    QMessageBox::information(0,"error","bug:add_client11111111");
-    return test;
-}
 
-
-bool Client:: delete_client(long client_cin)
-{
-    QSqlQuery query;
-    QString client_cin_s= QString::number(client_cin);
-    query.prepare("Delete from client where client_cin=:client_cin");
-    query.bindValue(":client_cin",client_cin_s);
     return query.exec();
 }
 
 
-//void Client::view_client(Client);
+bool Client:: delete_client(QString client_cin)
+{
+    QSqlQuery query;
+    query.prepare("Delete from client where client_cin=:client_cin");
+    query.bindValue(":client_cin",client_cin);
+    return query.exec();
+}
+
+QSqlQueryModel * Client::view_client()
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from clients");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("client_cin"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("name_client"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("phone_num"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("d/m/y"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("gender"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("email"));
+    model->setHeaderData(6,Qt::Horizontal,QObject::tr("adress"));
+    return model;
+}
+
 //void Client:: update_client(Client*);
 //void Client::view_purchaseHistory(Client);
 //void Client::classify_client(Client);

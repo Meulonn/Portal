@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -284,7 +284,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="widget">
        <attribute name="title">
@@ -293,8 +293,8 @@
        <widget class="QLabel" name="label_7">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
+          <x>30</x>
+          <y>40</y>
           <width>56</width>
           <height>16</height>
          </rect>
@@ -303,31 +303,21 @@
          <string>CIN</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_3">
+       <widget class="QLineEdit" name="lineEdit_cin_2">
         <property name="geometry">
          <rect>
-          <x>70</x>
-          <y>10</y>
+          <x>90</x>
+          <y>40</y>
           <width>113</width>
           <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPlainTextEdit" name="plainTextEdit">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>50</y>
-          <width>211</width>
-          <height>231</height>
          </rect>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_delete">
         <property name="geometry">
          <rect>
-          <x>650</x>
-          <y>200</y>
+          <x>270</x>
+          <y>30</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -339,8 +329,8 @@
        <widget class="QPushButton" name="pushButton_3">
         <property name="geometry">
          <rect>
-          <x>650</x>
-          <y>240</y>
+          <x>410</x>
+          <y>30</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -352,8 +342,8 @@
        <widget class="QPushButton" name="pushButton_4">
         <property name="geometry">
          <rect>
-          <x>650</x>
-          <y>280</y>
+          <x>570</x>
+          <y>30</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -362,28 +352,13 @@
          <string>OK</string>
         </property>
        </widget>
-      </widget>
-      <widget class="QWidget" name="tab_4">
-       <attribute name="title">
-        <string>CLASSIFY</string>
-       </attribute>
-       <widget class="QLineEdit" name="lineEdit_6">
-        <property name="geometry">
-         <rect>
-          <x>280</x>
-          <y>30</y>
-          <width>141</width>
-          <height>21</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTableWidget" name="tableWidget_2">
+       <widget class="QTableWidget" name="tableWidget_3">
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>70</y>
+          <y>100</y>
           <width>761</width>
-          <height>261</height>
+          <height>171</height>
          </rect>
         </property>
         <column>
@@ -416,6 +391,21 @@
           <string>EMAIL</string>
          </property>
         </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>CLASSIFY</string>
+       </attribute>
+       <widget class="QLineEdit" name="lineEdit_6">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>30</y>
+          <width>141</width>
+          <height>21</height>
+         </rect>
+        </property>
        </widget>
        <widget class="QCheckBox" name="checkBox_4">
         <property name="geometry">
@@ -503,6 +493,16 @@
         </property>
         <property name="text">
          <string>other</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="tableView">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>741</width>
+          <height>251</height>
+         </rect>
         </property>
        </widget>
       </widget>
