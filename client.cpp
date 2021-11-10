@@ -68,7 +68,10 @@ bool Client::add_client()
     if(query.lastError().isValid())
     {qDebug()<<query.lastError();
         QMessageBox::information(0,"error","bug:add_client");}
-    return query.exec();
+    bool test=query.exec();
+    if(test)
+    QMessageBox::information(0,"error","bug:add_client11111111");
+    return test;
 }
 
 
