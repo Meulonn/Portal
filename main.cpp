@@ -4,6 +4,7 @@
 #include<QApplication>
 #include<QMessageBox>
 #include<QDebug>
+#include<QString>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
