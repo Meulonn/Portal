@@ -53,8 +53,8 @@ bool Client::add_client()
    QString m_s= QString::number(m);
    QString y_s= QString::number(y);
 
-   query.prepare("INSERT INTO CLIENTs(CLIENT_CIN, NAME_CLIENT, PHONE_NUM, D, M, Y, GENDER, EMAIL,ADRESS) "
-                 "VALUES(:CLIENT_CIN, :NAME_CLIENT, :PHONE_NUM, :D, :M, :Y, :GENDER, :EMAIL,:ADRESS)");
+   query.prepare("insert into clients(client_cin,name_client,phone_nup,d,m,y,gender,email,adress)"
+                 "values(:CLIENT_CIN,:NAME_CLIENT,:PHONE_NUM,:D,:M,:Y,:GENDER,:EMAIL,:ADRESS)");
     query.bindValue(":CLIENT_CIN",client_cin);
     query.bindValue(":NAME_CLIENT",name_client);
     query.bindValue(":PHONE_NUM,",phone_num_s);
@@ -67,7 +67,7 @@ bool Client::add_client()
 
     if(query.lastError().isValid())
     {qDebug()<<query.lastError();
-        QMessageBox::information(0,"error","debug");}
+        QMessageBox::information(0,"error","bug:add_client");}
     return query.exec();
 }
 

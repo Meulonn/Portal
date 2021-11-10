@@ -43,7 +43,7 @@ if(client_cin.length()!=8)
     QMessageBox::information(0,"Add client","Please fill client_cin section.\n");
 else if(name_client=="")
         QMessageBox::information(0,"Add client","Please fill name section.\n");
-    else if(((d<1)||(d>31))||((m<1)||(m>12))||((y<1950)||(y>2021)))
+    else if(((d<1)||(d>31))||((m<1)||(m>12))||((y<1920)||(y>2021)))
             QMessageBox::information(0,"Add client","check birthday.\n");
          else if((gender!=0)&&(gender!=1)&&(gender!=2))
              QMessageBox::information(0,"Add client","Please check gender section.\n");
