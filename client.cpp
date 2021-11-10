@@ -88,15 +88,27 @@ QSqlQueryModel * Client::view_client()
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("client_cin"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("name_client"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("phone_num"));
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("d/m/y"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("d-m-y"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("gender"));
     model->setHeaderData(5,Qt::Horizontal,QObject::tr("email"));
     model->setHeaderData(6,Qt::Horizontal,QObject::tr("adress"));
     return model;
 }
 
+/*QSqlQueryModel Client::research_client(QString client_cin)
+{
+    QSqlQueryModel model=new QSqlQueryModel();
+    model->setQuery("select * from clients");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("name_client"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("phone_num"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("d-m-y"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("gender"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("email"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("adress"));
+    return model;
+}
+*/
 //void Client:: update_client(Client*);
 //void Client::view_purchaseHistory(Client);
 //void Client::classify_client(Client);
-//Client Client:research_client(Client);
 //void Client::notify_about_delivery(Client);

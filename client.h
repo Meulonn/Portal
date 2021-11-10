@@ -37,6 +37,7 @@ class Client
    bool add_client();
    bool delete_client(QString);
    QSqlQueryModel * view_client();
+   QSqlQueryModel research_client(QString);
    /*void update_client(Client*);
    void view_purchaseHistory(Client);
    void classify_client(Client);

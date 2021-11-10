@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ui->tableview
+    ui->tableView->setModel(c.view_client());
 }
 
 MainWindow::~MainWindow()
@@ -70,7 +70,9 @@ else{
     bool test=C.add_client();
 
     if(test)
+      {  ui->tableView->setModel(c.view_client());//refresh
         QMessageBox::information(0,"Add client","new client is added.\n");                               
+       }
     else QMessageBox::critical(0,"Add client","new client is not added.\n");
 
 }
@@ -81,6 +83,8 @@ void MainWindow::on_pushButton_delete_clicked()
     QString client_cin=ui->lineEdit_cin_2->text();
     bool test=c.delete_client(client_cin);
     if(test)
+     {ui->tableView->setModel(c.view_client());//refresh
     QMessageBox::information(0 ,"Delete","client deleted.\n");
+    }
     else QMessageBox::critical(0 ,"Delete","client not deleted.\n");
 }

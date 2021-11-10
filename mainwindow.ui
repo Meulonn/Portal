@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>796</width>
-    <height>460</height>
+    <width>825</width>
+    <height>472</height>
    </rect>
   </property>
   <property name="cursor">
@@ -293,8 +293,8 @@
        <widget class="QLabel" name="label_7">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>40</y>
+          <x>260</x>
+          <y>43</y>
           <width>56</width>
           <height>16</height>
          </rect>
@@ -306,8 +306,8 @@
        <widget class="QLineEdit" name="lineEdit_cin_2">
         <property name="geometry">
          <rect>
-          <x>90</x>
-          <y>40</y>
+          <x>319</x>
+          <y>43</y>
           <width>113</width>
           <height>22</height>
          </rect>
@@ -317,7 +317,7 @@
         <property name="geometry">
          <rect>
           <x>270</x>
-          <y>30</y>
+          <y>270</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -326,11 +326,11 @@
          <string>DELETE</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="pushButton_update">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>30</y>
+          <x>420</x>
+          <y>270</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -339,11 +339,11 @@
          <string>UPDATE</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="pushButton_OK2">
         <property name="geometry">
          <rect>
-          <x>570</x>
-          <y>30</y>
+          <x>480</x>
+          <y>40</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -352,45 +352,15 @@
          <string>OK</string>
         </property>
        </widget>
-       <widget class="QTableWidget" name="tableWidget_3">
+       <widget class="QTableView" name="tableView_2">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>10</x>
           <y>100</y>
-          <width>761</width>
-          <height>171</height>
+          <width>741</width>
+          <height>151</height>
          </rect>
         </property>
-        <column>
-         <property name="text">
-          <string>CIN</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>NAME</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>GENDER</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>ADRESS</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>BIRTHDAY</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>EMAIL</string>
-         </property>
-        </column>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_4">
@@ -528,7 +498,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>796</width>
+     <width>825</width>
      <height>26</height>
     </rect>
    </property>
