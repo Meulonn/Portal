@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <QtCharts>
 #include <QChartView>
+#include <QFile>
 
 QT_CHARTS_USE_NAMESPACE
 
@@ -44,6 +45,19 @@ void MainWindow::on_pushButton_supprimer_clicked()
         QObject::tr("Deleted successfully.\n"
                     "Click cancel to exit."), QMessageBox::Cancel);
          ui->tab_agents->setModel(a.afficher());
+         // Création d'un objet QFile
+         QFile file("C:/Users/khali/Documents/Smart station agent/Qt.txt");
+         // On ouvre notre fichier en lecture seule et on vérifie l'ouverture
+         if (!file.open(QIODevice::WriteOnly | QIODevice::Text|QIODevice::Append))
+             return;
+         // Création d'un objet QTextStream à partir de notre objet QFile
+         QTextStream flux(&file);
+         // On choisit le codec correspondant au jeu de caractères que l'on souhaite ; ici, UTF-8
+         flux.setCodec("UTF-8");
+         // Écriture des différentes lignes dans le fichier
+         flux <<"CIN:"<< ui->lineEditsupprimer->text() << "          Deleted."<<endl ;
+
+         file.close();
     }
     else
         QMessageBox::critical(nullptr,QObject::tr("task failed"),
@@ -75,6 +89,19 @@ if(test)
     QObject::tr("Added successfully.\n"
                 "Click cancel to exit."), QMessageBox::Cancel);
     ui->tab_agents->setModel(a.afficher());
+    // Création d'un objet QFile
+    QFile file("C:/Users/khali/Documents/Smart station agent/Qt.txt");
+    // On ouvre notre fichier en lecture seule et on vérifie l'ouverture
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text|QIODevice::Append))
+        return;
+    // Création d'un objet QTextStream à partir de notre objet QFile
+    QTextStream flux(&file);
+    // On choisit le codec correspondant au jeu de caractères que l'on souhaite ; ici, UTF-8
+    flux.setCodec("UTF-8");
+    // Écriture des différentes lignes dans le fichier
+
+    flux <<"Name:"<< ui->lineEdit_name->text() <<" , "<<"CIN:" << ui->lineEditCIN->text().toInt()<< " Added."<<endl ;
+    file.close();
 }
 else
     QMessageBox::critical(nullptr,QObject::tr("Error message"),
@@ -123,6 +150,18 @@ void MainWindow::on_modify_clicked()
 
             ui->tab_agents->setModel(a.afficherCIN());
             ui->tab_agents->setModel(a.afficher());
+            // Création d'un objet QFile
+            QFile file("C:/Users/khali/Documents/Smart station agent/Qt.txt");
+            // On ouvre notre fichier en lecture seule et on vérifie l'ouverture
+            if (!file.open(QIODevice::WriteOnly | QIODevice::Text|QIODevice::Append))
+                return;
+            // Création d'un objet QTextStream à partir de notre objet QFile
+            QTextStream flux(&file);
+            // On choisit le codec correspondant au jeu de caractères que l'on souhaite ; ici, UTF-8
+            flux.setCodec("UTF-8");
+            // Écriture des différentes lignes dans le fichier
+            flux <<"Name:"<< ui->lineEditnamemodifier->text() <<" , "<<"CIN:" << ui->lineEditcinmodifier->text().toInt()<< " modified."<<endl ;
+            file.close();
         }
             else
                 QMessageBox::critical(nullptr, QObject::tr("Modify Agent "),
@@ -250,7 +289,7 @@ void MainWindow::on_statistics_clicked()
                              float aa=model->rowCount();
                              model->setQuery("select * from AGENTS where NBR_ABSENCES >3 ");
                              float aaa=model->rowCount();
-                             float total=4;
+                             float total=a+aa+aaa;
                              QString d=QString("No absences "+QString::number((a*100)/total,'f',2)+"%" );
                              QString b=QString("between 1 and 3 absences "+QString::number((aa*100)/total,'f',2)+"%" );
                              QString c=QString("more than 3 absences "+QString::number((aaa*100)/total,'f',2)+"%" );
