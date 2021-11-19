@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>722</width>
+    <width>1047</width>
     <height>574</height>
    </rect>
   </property>
@@ -17,17 +17,17 @@
    <widget class="QTabWidget" name="Gestion_agents">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>40</y>
-      <width>601</width>
-      <height>431</height>
+      <x>10</x>
+      <y>0</y>
+      <width>951</width>
+      <height>481</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -62,19 +62,6 @@
         <string>Search for agent</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_stats">
-       <property name="geometry">
-        <rect>
-         <x>370</x>
-         <y>50</y>
-         <width>151</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Statistics</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pushButton_2">
        <property name="geometry">
         <rect>
@@ -88,7 +75,7 @@
         <string>Return</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_Mettre_a_jour_3">
+      <widget class="QPushButton" name="print">
        <property name="geometry">
         <rect>
          <x>200</x>
@@ -98,7 +85,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>View Agents</string>
+        <string>Print payment sheet</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEditchercher">
@@ -119,6 +106,19 @@
          <width>291</width>
          <height>192</height>
         </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="statistics">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>50</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Statistics</string>
        </property>
       </widget>
      </widget>
@@ -391,7 +391,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <rect>
         <x>10</x>
         <y>20</y>
-        <width>301</width>
+        <width>601</width>
         <height>371</height>
        </rect>
       </property>
@@ -402,7 +402,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QPushButton" name="modify">
       <property name="geometry">
        <rect>
-        <x>410</x>
+        <x>750</x>
         <y>260</y>
         <width>91</width>
         <height>31</height>
@@ -415,7 +415,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="lineEditsupprimer">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>740</x>
         <y>310</y>
         <width>113</width>
         <height>22</height>
@@ -425,7 +425,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QPushButton" name="pushButton_supprimer">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>740</x>
         <y>350</y>
         <width>111</width>
         <height>31</height>
@@ -438,7 +438,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>700</x>
         <y>20</y>
         <width>47</width>
         <height>14</height>
@@ -451,7 +451,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>640</x>
         <y>80</y>
         <width>81</width>
         <height>16</height>
@@ -464,7 +464,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>690</x>
         <y>50</y>
         <width>47</width>
         <height>14</height>
@@ -477,7 +477,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>620</x>
         <y>110</y>
         <width>111</width>
         <height>16</height>
@@ -490,7 +490,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>680</x>
         <y>140</y>
         <width>47</width>
         <height>14</height>
@@ -503,7 +503,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>680</x>
         <y>170</y>
         <width>47</width>
         <height>14</height>
@@ -516,7 +516,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>690</x>
         <y>200</y>
         <width>47</width>
         <height>14</height>
@@ -529,7 +529,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>690</x>
         <y>230</y>
         <width>47</width>
         <height>14</height>
@@ -542,7 +542,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="lineEditcinmodifier">
       <property name="geometry">
        <rect>
-        <x>410</x>
+        <x>740</x>
         <y>10</y>
         <width>113</width>
         <height>20</height>
@@ -552,7 +552,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="lineEditnamemodifier">
       <property name="geometry">
        <rect>
-        <x>410</x>
+        <x>740</x>
         <y>40</y>
         <width>113</width>
         <height>20</height>
@@ -562,7 +562,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="lineEditnumberofabsencesmodifier">
       <property name="geometry">
        <rect>
-        <x>440</x>
+        <x>740</x>
         <y>100</y>
         <width>113</width>
         <height>20</height>
@@ -572,9 +572,9 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="lineEditadressmodifier">
       <property name="geometry">
        <rect>
-        <x>412</x>
+        <x>740</x>
         <y>130</y>
-        <width>101</width>
+        <width>111</width>
         <height>20</height>
        </rect>
       </property>
@@ -582,7 +582,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="lineEditpositionmodifier">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>740</x>
         <y>160</y>
         <width>113</width>
         <height>20</height>
@@ -592,7 +592,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="lineEditsalarymodifier">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>740</x>
         <y>190</y>
         <width>113</width>
         <height>20</height>
@@ -602,7 +602,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="lineEditemailmodifier">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>740</x>
         <y>220</y>
         <width>113</width>
         <height>20</height>
@@ -612,11 +612,50 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QDateEdit" name="dateEdit_2">
       <property name="geometry">
        <rect>
-        <x>420</x>
+        <x>740</x>
         <y>70</y>
         <width>110</width>
         <height>22</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="triposition">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>410</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>tri position</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="trinumberofabsences">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>410</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>tri number of absences</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="triadmissiondate">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>410</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>tri admission date</string>
       </property>
      </widget>
     </widget>
@@ -627,7 +666,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>722</width>
+     <width>1047</width>
      <height>22</height>
     </rect>
    </property>

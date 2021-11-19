@@ -6,6 +6,10 @@
 #include <QMessageBox>
 #include <QApplication>
 #include <QDebug>
+#include <QtCharts>
+#include <QChartView>
+
+QT_CHARTS_USE_NAMESPACE
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_position->setValidator( new QIntValidator(1,4, this));
     ui->lineEdit_numberofabsences->setValidator( new QIntValidator(1,4, this));
     ui->lineEdit_Salary->setValidator(new QIntValidator(300,50000,this));
-    ui->lineEditchercher->setValidator( new QIntValidator(00000000, 99999999, this));
     ui->tab_agents->setModel(a.afficher());
 
 
@@ -137,9 +140,152 @@ void MainWindow::on_modify_clicked()
     }
 }
 
+
+
+
+
+
+
+
+
+
 void MainWindow::on_pushButton_Chercher_clicked()
 {
     Agent a;
     QString A= ui->lineEditchercher->text();
     ui->tab_recherche->setModel(a.rechercher(A));
+}
+
+
+
+void MainWindow::on_trinumberofabsences_clicked()
+{
+    Agent a;
+    QString y=" ";
+    ui->tab_agents->setModel(a.trinbrabsences(y));
+}
+
+void MainWindow::on_triposition_clicked()
+{
+    Agent a;
+    QString y=" ";
+    ui->tab_agents->setModel(a.triposition(y));
+
+}
+
+void MainWindow::on_triadmissiondate_clicked()
+{
+    Agent a;
+    QString y=" ";
+    ui->tab_agents->setModel(a.triadmissiondate(y));
+}
+
+
+
+void MainWindow::on_print_clicked()
+{
+    QPdfWriter pdf("C:\\Users\\khali\\Desktop\\payment_sheet.pdf");
+                      QPainter painter(&pdf);
+                     int i = 4000;
+                          painter.setPen(Qt::red);
+                          painter.setFont(QFont("Arial", 25));
+                          painter.drawText(2500,1100,"Agents payment sheet");
+                          painter.setPen(Qt::black);
+                          painter.setFont(QFont("Arial", 15));
+                          painter.drawRect(1750,500,5400,1000);
+                          painter.drawRect(0,3000,9600,500);
+                          painter.setFont(QFont("Arial", 12));
+                          painter.drawText(200,3300,"Agent CIN");
+                          painter.drawText(1300,3300,"Name");
+                          painter.drawText(2100,3300,"Admission Date");
+                          painter.drawText(5300,3300,"Number of absences");
+                          painter.drawText(7400,3300,"Position");
+                          painter.drawText(8600,3300,"Salary");
+
+                          int aux=ui->lineEditCIN->text().toInt();
+                          QString aux1=QString::number(aux);
+                          QSqlQuery query;
+                          query.prepare("select * from AGENTS ");
+                          query.exec();
+                          while (query.next())
+                          {
+                              painter.drawText(200,i,query.value(0).toString());
+                              painter.drawText(1300,i,query.value(1).toString());
+                              painter.drawText(2100,i,query.value(2).toString());
+                              painter.drawText(5300,i,query.value(3).toString());
+                              painter.drawText(7400,i,query.value(5).toString());
+                              painter.drawText(8600,i,query.value(6).toString());
+
+
+                             i = i + 500;
+                          }
+                          QMessageBox::information(nullptr, QObject::tr("PDF Enregistré!"),
+                                      QObject::tr("PDF Enregistré!.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+
+
+void MainWindow::on_lineEditchercher_textChanged(const QString &arg1)
+{
+    Agent a;
+    QString A= ui->lineEditchercher->text();
+    ui->tab_recherche->setModel(a.rechercher(A));
+}
+
+
+void MainWindow::on_pushButton_stats_clicked()
+{
+
+}
+
+
+
+
+void MainWindow::on_statistics_clicked()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+                             model->setQuery("select * from AGENTS where NBR_ABSENCES <1 ");
+                             float a=model->rowCount();
+                             model->setQuery("select * from AGENTS where NBR_ABSENCES between 1 and 3 ");
+                             float aa=model->rowCount();
+                             model->setQuery("select * from AGENTS where NBR_ABSENCES >3 ");
+                             float aaa=model->rowCount();
+                             float total=4;
+                             QString d=QString("No absences "+QString::number((a*100)/total,'f',2)+"%" );
+                             QString b=QString("between 1 and 3 absences "+QString::number((aa*100)/total,'f',2)+"%" );
+                             QString c=QString("more than 3 absences "+QString::number((aaa*100)/total,'f',2)+"%" );
+                             QPieSeries *series = new QPieSeries();
+                             series->append(d,a);
+                             series->append(b,aa);
+                             series->append(c,aaa);
+                     if (a!=0)
+                     {QPieSlice *slice = series->slices().at(0);
+                      slice->setLabelVisible();
+                      slice->setPen(QPen());}
+                     if (aa!=0)
+                     {
+                              // Add label, explode and define brush for 2nd slice
+                              QPieSlice *slice1 = series->slices().at(1);
+                              //slice1->setExploded();
+                              slice1->setLabelVisible();
+                     }
+                     if(aaa!=0)
+                     {
+                              // Add labels to rest of slices
+                              QPieSlice *slice2 = series->slices().at(2);
+                              //slice1->setExploded();
+                              slice2->setLabelVisible();
+                     }
+                             // Create the chart widget
+                             QChart *chart = new QChart();
+                             // Add data to chart with title and hide legend
+                             chart->addSeries(series);
+                             chart->setTitle("Statistics on the number of absences of AGENTS "+ QString::number(total));
+                             chart->legend()->hide();
+                             // Used to display the chart
+                             QChartView *chartView = new QChartView(chart);
+                             chartView->setRenderHint(QPainter::Antialiasing);
+                             chartView->resize(1000,500);
+                             chartView->show();
+
 }
