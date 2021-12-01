@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include"connexion.h"
-#include<QString>
+
 #include<QMessageBox>
 #include <QApplication>
 #include<QtDebug>
