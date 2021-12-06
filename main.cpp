@@ -3,6 +3,7 @@
 #include<QMessageBox>
 #include <QApplication>
 #include<QtDebug>
+#include<QString>
 
 
 int main(int argc,  char *argv[])
