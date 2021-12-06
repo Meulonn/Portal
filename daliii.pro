@@ -6,6 +6,7 @@ QT += axcontainer
 QT+=printsupport
 QT+=network
 QT += widgets
+QT += charts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -22,28 +23,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Agent.cpp \
     connexion.cpp \
     delivery.cpp \
     excelexporthelper.cpp \
-    login.cpp \
     mailing.cpp \
     main.cpp \
     mainwindow.cpp \
+    product.cpp \
     smtp.cpp \
-    test.cpp
+
 
 HEADERS += \
+    Agent.h \
     connexion.h \
     delivery.h \
     excelexporthelper.h \
-    login.h \
     mailing.h \
     mainwindow.h \
-    smtp.h \
-    test.h
+    product.h \
+    smtp.h
 
 FORMS += \
-    login.ui \
     mailing.ui \
     mainwindow.ui
 

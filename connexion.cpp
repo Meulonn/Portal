@@ -5,7 +5,9 @@ Connection::Connection()
 }
 
 bool Connection::createconnection()
-{ db = QSqlDatabase::addDatabase("QODBC");
+{
+   // QSqlQuery *query = new QSqlQuery(db);
+    db = QSqlDatabase::addDatabase("QODBC");
     bool test=false;
 
 db.setDatabaseName("test-bd");//inserer le nom de la source de données ODBC

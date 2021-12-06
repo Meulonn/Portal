@@ -28,8 +28,9 @@ void mailing::on_sendmail_clicked()
 {
     Smtp* smtp = new Smtp("stationsmart2021@gmail.com","dali123***","smtp.gmail.com",465);
     QString object=ui->lineEdit_object->text();
+    QString email=ui->comboboxEmail->currentText();
     QString message=ui->message->toPlainText();
 
                 connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-                smtp->sendMail("stationsmart2021@gmail.com","ladghsaleh@gmail.com",object,message);
+                smtp->sendMail("stationsmart2021@gmail.com","trabelsi.dali484@gmail.com",object,message);
 }

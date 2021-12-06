@@ -1,10 +1,9 @@
 #include "mainwindow.h"
 #include"connexion.h"
-
 #include<QMessageBox>
 #include <QApplication>
 #include<QtDebug>
-#include"login.h"
+
 
 int main(int argc,  char *argv[])
 {
@@ -12,7 +11,7 @@ int main(int argc,  char *argv[])
     Connection c;
     bool test=c.createconnection();
     //MainWindow w;
-    login l;
+    MainWindow l;
     if(test)
     {
         l.show();
