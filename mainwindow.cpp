@@ -64,7 +64,7 @@ MainWindow::~MainWindow()
 
 /*void MainWindow::on_STATbutton_clicked()
 {
-
+3
 }
 */
 
