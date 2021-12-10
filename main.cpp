@@ -13,6 +13,7 @@ int main(int argc,  char *argv[])
     bool test=c.createconnection();
     //MainWindow w;
     MainWindow l;
+   // l.show();
     if(test)
     {
         l.show();
