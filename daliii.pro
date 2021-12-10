@@ -7,6 +7,7 @@ QT+=printsupport
 QT+=network
 QT += widgets
 QT += charts
+QT       += core gui  serialport charts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -24,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Agent.cpp \
+    arduino.cpp \
     connexion.cpp \
     delivery.cpp \
     excelexporthelper.cpp \
@@ -36,6 +38,7 @@ SOURCES += \
 
 HEADERS += \
     Agent.h \
+    arduino.h \
     connexion.h \
     delivery.h \
     excelexporthelper.h \

@@ -48,11 +48,50 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ui->lineEdit_rechercher->setPlaceholderText(QString("Research"));
+    /*ui->setupUi(this);
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).*/
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+int MainWindow::search_truck(QString s)
+{
+    int i=0;
+    while(ui->DeliveryDetails->model()->rowCount() )
+    {
+        if(ui->DeliveryDetails->model()->index(i,5).data()==s)
+        {
+            return 1;
+    }
+        i++;
+    }
+    return -1;
+
+}
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+
+    int s = search_truck(data);
+
+       if(s==1)
+        A.write_to_arduino("1");
+       else if(s==-1)
+           A.write_to_arduino("0");
+
+
+
 }
 
 //PROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOODUUUUUUUUUUUUUCT
@@ -585,22 +624,22 @@ void MainWindow::on_statisticsagents_clicked()
 
 void MainWindow::on_Productsmenu_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 void MainWindow::on_Agentsmenu_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 void MainWindow::on_returnagent_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_returnproduct_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_lineEditchercher_textChanged(const QString &arg1)
@@ -616,14 +655,14 @@ void MainWindow::on_lineEditchercher_textChanged(const QString &arg1)
 
 void MainWindow::on_deliveriesmenu_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(4);
 }
 
 void MainWindow::on_delete_2_clicked()
 {
     delivery d;
 
-    int package_num=ui->lineEdit_4_PackageNumber->text().toInt();
+    int package_num=ui->lineEdit_delete->text().toInt();
     qDebug()<<package_num;
     bool test1=search(package_num);
     if(test1==false)
@@ -843,5 +882,37 @@ void MainWindow::on_mail_clicked()
 
 void MainWindow::on_cancel_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString username=ui->lineEdit->text();
+       QString password=ui->lineEdit_2->text();
+       if(username=="" || password=="")
+       {
+   QMessageBox::critical(nullptr,QObject::tr("Signin"),QObject::tr("Please fill in the fields"),QMessageBox::Ok);
+       }
+       QSqlQuery qry;
+       if(qry.exec("SELECT * FROM EMPLOYEE WHERE USERNAME='"+username+ "' AND PASSWORD='"+password+"'"))
+      {
+
+           int count=0;
+           while(qry.next())
+           {
+               count++;
+           }
+           if(count==1)
+           {    QMessageBox::information(nullptr,QObject::tr("Signin"),QObject::tr("connected successfully"),QMessageBox::Ok);
+
+               ui->stackedWidget->setCurrentIndex(1);
+
+           }
+
+
+           else
+           QMessageBox::critical(nullptr,QObject::tr("Signin"),QObject::tr("username and password are not correct"),QMessageBox::Ok);
+
+}
+}
+

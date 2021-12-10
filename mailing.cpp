@@ -32,5 +32,5 @@ void mailing::on_sendmail_clicked()
     QString message=ui->message->toPlainText();
 
                 connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-                smtp->sendMail("stationsmart2021@gmail.com","trabelsi.dali484@gmail.com",object,message);
+                smtp->sendMail("stationsmart2021@gmail.com","asma.mabrouk@esprit.tn",object,message);
 }

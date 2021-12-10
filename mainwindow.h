@@ -6,6 +6,8 @@
 #include "Agent.h"
 #include"delivery.h"
 #include"mailing.h"
+#include "client.h"
+#include "arduino.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -109,12 +111,19 @@ private slots:
 
     void on_cancel_clicked();
 
+    void on_pushButton_clicked();
+    void update_label();
+    int search_truck(QString);
+
 private:
     Ui::MainWindow *ui;
     product p;
     Agent a;
     delivery d;
     mailing *mailling;
+    Arduino A;
+    QByteArray data;
+
 
 
 };
